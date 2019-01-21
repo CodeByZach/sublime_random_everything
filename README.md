@@ -50,4 +50,3 @@ Overridable Settings
         "max_year": 2000,
         "min_year": 1999
     }
-
