@@ -69,13 +69,6 @@
 								{
 									"file": "${packages}/Random Everything/README.md"
 								}
-							},
-							{
-								"caption": "LICENSE",
-								"command": "open_file", "args":
-								{
-									"file": "${packages}/Random Everything/LICENSE"
-								}
 							}
 						]
 					}
