@@ -8,7 +8,7 @@ It works in Sublime Text 2 *and* ST3
 Example
 =======
 
-![Example](example.gif)
+![Example](https://github.com/EatBreatheCode/sublime_random_everything/raw/docs/example.gif)
 
 Usage
 =====
