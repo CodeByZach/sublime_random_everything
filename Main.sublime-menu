@@ -64,6 +64,17 @@
 							},
 							{ "caption": "-" },
 							{
+								"caption": "Context Menu",
+								"command": "random_everything_edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/Random Everything/Context.sublime-menu",
+									"user_file": "${packages}/User/Random Everything/Context.sublime-menu",
+									"default": "[\n$0\n]\n"
+								}
+							},
+							{ "caption": "-" },
+							{
 								"caption": "README",
 								"command": "open_file", "args":
 								{
