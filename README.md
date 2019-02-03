@@ -8,7 +8,7 @@ It works in Sublime Text 2 *and* ST3
 Example
 =======
 
-![Example](example.gif)
+![Example](docs/example.gif)
 
 Usage
 =====
