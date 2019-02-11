@@ -10,7 +10,7 @@ import logging
 PACKAGES_PATH = os.path.dirname(os.path.realpath(__file__))
 
 def get_settings():
-	return sublime.load_settings('random_everything.sublime-settings')
+	return sublime.load_settings('Random Everything.sublime-settings')
 
 """
 Base class for the Random generator. Extends the WindowCommand and adds helper methods

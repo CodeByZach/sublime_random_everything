@@ -59,11 +59,10 @@
 						[
 							{
 								"caption": "Settings",
-								"command": "z_edit_settings",
+								"command": "edit_settings",
 								"args":
 								{
-									"base_file": "${packages}/Random Everything/random_everything.sublime-settings",
-									"user_file": "${packages}/User/Random Everything/random_everything.sublime-settings",
+									"base_file": "${packages}/Random Everything/Random Everything.sublime-settings",
 									"default": "{\n\t$0\n}\n"
 								}
 							},
