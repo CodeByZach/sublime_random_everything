@@ -1,4 +1,4 @@
-random-sublime-text-plugin
+Random Everything
 ==========================
 
 Plugin for sublime text to generate random, ints, floats, strings and words.
