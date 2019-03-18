@@ -1,17 +1,14 @@
-Random Everything
-==========================
+# Random Everything
 
 Plugin for sublime text to generate random, ints, floats, strings and words.
 
 It works in Sublime Text 2 *and* ST3
 
-Example
-=======
+## Example
 
 ![Example](docs/example.gif)
 
-Usage
-=====
+## Usage
 
 This plugin can only be accessed through the <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> command.
 
@@ -34,16 +31,15 @@ Type *random* and you get the following choices:
 * Random:IPv4 Address - generates a random ipv4 ip address
 * Random:IPV6 Address - generates a random ivp6 ip address
 
-Overridable Settings
-====================
+## Overridable Settings
 
-#Random: E-Mail
+### Random: E-Mail
 * random_email_top_level_domain_override - Allows overriding available email TLDs e.g. `["com","org"]`. Defaults are `["com", "net", "co.uk", "org", "edu"]`
 * random_email_main_domain_override - Allows overriding of available email main domains e.g. `["gmail","yahoo", "hotmail"]`. If not specified, a random string will be used.
 
 * `max_year` and `min_year` defines a date range
 
-# Complete Settings Example
+### Complete Settings Example
 
     {
         "random_email_top_level_domain_override": ["com", "net", "co.uk", "org", "edu"],
