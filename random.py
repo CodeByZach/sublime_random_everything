@@ -23,11 +23,17 @@ class RandomWindow(sublime_plugin.WindowCommand):
 		"""
 		return '1,100'
 
-    def default_length(self):
-        """
-        This should be persisted somehow
-        """
-        return '16'
+	def default_length(self):
+		"""
+		This should be persisted somehow
+		"""
+		return '16'
+
+	def default_list(self):
+		"""
+		This should be persisted somehow
+		"""
+		return 'A|B|C|D'
 
 	def get_range(self, input_text):
 		try:
@@ -44,17 +50,28 @@ class RandomWindow(sublime_plugin.WindowCommand):
 			logging.exception(e)
 			sublime.error_message('Must be two comma separated integers')
 
-    def get_length(self, input_text):
-        try:
-            length = int(input_text)
+	def get_length(self, input_text):
+		try:
+			length = int(input_text)
 
-            if length < 1:
-                raise ValueError('Invalid length. Must be at least 1')
+			if length < 1:
+				raise ValueError('Invalid length. Must be at least 1')
 
-            self.insert({'length': length})
-        except Exception as e:
-            logging.exception(e)
-            sublime.error_message('Must be an integer')
+			self.insert({'length': length})
+		except Exception as e:
+			logging.exception(e)
+			sublime.error_message('Must be an integer')
+
+	def get_list(self, input_text):
+		try:
+			mylist = input_text
+			if ((len(mylist))==0) :
+				raise ValueError('Invalid format?')
+
+			self.insert({'mylist': mylist})
+		except Exception as e:
+			logging.exception(e)
+			sublime.error_message('Must be a "|"-separated list')
 
 	def insert(self, kwargs):
 		view = self.window.active_view()
@@ -97,21 +114,25 @@ class RandomIntWindowCommand(RandomWindow):
 		self.text_command = 'random_int'
 		self.window.show_input_panel('Random integer from-to',self.default_range(), self.get_range, None, None)
 
-
 class RandomFloatWindowCommand(RandomWindow):
 	def run(self):
 		self.text_command = 'random_float'
 		self.window.show_input_panel('Random float from-to',self.default_range(), self.get_range, None, None)
 
 class RandomLetterWindowCommand(RandomWindow):
-    def run(self):
-        self.text_command = 'random_letter'
-        self.window.show_input_panel('Random letters',self.default_length(), self.get_length, None, None)
+	def run(self):
+		self.text_command = 'random_letter'
+		self.window.show_input_panel('Random letters',self.default_length(), self.get_length, None, None)
 
 class RandomLetterAndNumberWindowCommand(RandomWindow):
-    def run(self):
-        self.text_command = 'random_letter_and_number'
-        self.window.show_input_panel('Random letters and numbers',self.default_length(), self.get_length, None, None)
+	def run(self):
+		self.text_command = 'random_letter_and_number'
+		self.window.show_input_panel('Random letters and numbers',self.default_length(), self.get_length, None, None)
+
+class RandomListWindowCommand(RandomWindow):
+	def run(self):
+		self.text_command = 'random_list'
+		self.window.show_input_panel('Random List terms',self.default_list(), self.get_list, None, None)
 
 """
 END Window commands
@@ -146,27 +167,40 @@ class RandomLetterCommand(RandomText):
 
 	def generate_letters(self):
 		output = ''
-        for letter in range(0, self.length):
+		for letter in range(0, self.length):
 			output += r.choice(string.ascii_letters)
 
 		return output
 
 	def run(self, view, **kwargs):
-        self.length = kwargs['length']
+		self.length = kwargs['length']
 		self.insert(view, self.generate_letters)
 
 class RandomLetterAndNumberCommand(RandomText):
 
 	def generate_letters_and_numbers(self):
 		output = ''
-        for letter in range(0, self.length):
+		for letter in range(0, self.length):
 			output += r.choice(string.ascii_letters + string.digits)
 
 		return output
 
 	def run(self, view, **kwargs):
-        self.length = kwargs['length']
+		self.length = kwargs['length']
 		self.insert(view, self.generate_letters_and_numbers)
+
+class RandomListCommand(RandomText):
+
+	def generate_from_list(self):
+		settings = get_settings()
+		separator=settings.get('randomList_separartor',"|")
+		choice_list = self.mylist.split(separator)
+		output = str(r.choice(choice_list))
+		return output
+
+	def run(self, view, **kwargs):
+		self.mylist = kwargs['mylist']
+		self.insert(view, self.generate_from_list)
 
 class RandomWordCommand(RandomText):
 
@@ -331,7 +365,6 @@ class RandomIpv6AddressCommand(RandomText):
 		self.insert(view, self.generate_ipv6_address)
 
 class RandomCountryCommand(RandomText):
-
 	def generate_country(self):
 		countries = self.get_countries()
 		return r.choice(countries)
