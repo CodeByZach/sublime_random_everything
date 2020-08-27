@@ -1,5 +1,6 @@
 # Random Everything
 ===================
+[![Latest Release](https://img.shields.io/github/tag/EatBreatheCode/sublime_random_everything.svg?label=version)](https://github.com/EatBreatheCode/sublime_random_everything/releases)
 
 Plugin for sublime text to generate random, ints, floats, strings and words.
 
