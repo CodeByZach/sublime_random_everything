@@ -1,5 +1,4 @@
 # Random Everything
-===================
 [![Latest Release](https://img.shields.io/github/tag/EatBreatheCode/sublime_random_everything.svg?label=version)](https://github.com/EatBreatheCode/sublime_random_everything/releases)
 
 Plugin for sublime text to generate random, ints, floats, strings and words.
@@ -7,12 +6,10 @@ Plugin for sublime text to generate random, ints, floats, strings and words.
 It works in Sublime Text 2 *and* ST3
 
 ## Example
-==========
 
 ![Example](docs/example.gif)
 
 ## Usage
-========
 
 This plugin can only be accessed through the <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> command.
 
@@ -37,7 +34,6 @@ Type *random* and you get the following choices:
 * Random:IPV6 Address - generates a random ivp6 ip address
 
 ## Overridable Settings
-=======================
 
 ### Random: E-Mail
 * random_email_top_level_domain_override - Allows overriding available email TLDs e.g. `["com","org"]`. Defaults are `["com", "net", "co.uk", "org", "edu"]`
