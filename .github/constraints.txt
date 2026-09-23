@@ -1,0 +1,11 @@
+# Pinned versions of everything CI installs (tox, lint, tests, docs).
+#
+# This is a pip *constraints* file, not an install list: CI sets
+# PIP_CONSTRAINT to this path, so every `pip install` (including the ones
+# tox runs inside its environments) is held to these exact versions.
+# Dependabot keeps it current (see .github/dependabot.yml).
+flake8==7.4.1
+mccabe==0.7.0
+pip==26.2.1
+pycodestyle==2.15.0
+pyflakes==4.0.0
